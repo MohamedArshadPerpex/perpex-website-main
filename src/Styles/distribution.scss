@@ -1,0 +1,89 @@
+@import "./constant";
+@import "./variables";
+
+.app__distribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20% $md-gap 10% $md-gap;
+  height: 100vh; // Ensures it takes the full height of the viewport for proper centering
+
+  .distribution__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; // Ensures even spacing between left and right sections
+    width: 100%;
+    max-width: 1200px; // Adjust based on your design
+    gap: $lg-gap;
+
+    .left__distribution {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: $lg-gap;
+
+      .distribution__text {
+        display: flex;
+        flex-direction: column;
+        gap: $lg-gap;
+
+        h1 {
+          font-size: 4rem;
+          color: $primary-color;
+        }
+
+        a {
+          font-size: 1.3rem;
+          color: $neutral-color;
+          text-decoration: none;
+          &:hover {
+            color: $primary-color;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .distribution__buttons {
+        display: flex;
+        align-items: center;
+        gap: $lg-gap;
+
+        button {
+          @include button;
+          background: $primary-color;
+          color: $secondary-color;
+          gap: $sm-gap;
+          display: flex;
+          align-items: center;
+          padding: 0.5rem 1rem;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background 0.3s;
+
+          &:hover {
+            background: darken($primary-color, 10%);
+          }
+
+          svg {
+            margin-right: $sm-gap; // Ensure icons have some spacing
+          }
+        }
+      }
+    }
+
+    .right__distribution {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      img {
+        max-width: 100%; // Ensure image is responsive
+        height: auto; // Maintain aspect ratio
+        border-radius: 10px;
+        box-shadow: $shadow;
+      }
+    }
+  }
+}
