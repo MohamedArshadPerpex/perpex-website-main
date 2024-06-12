@@ -15,10 +15,10 @@ const App = () => {
     <div className="app">
       <Navbar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/business" element={<Business />} />
       </Routes>
       <CircleAnimation />
-      <Home />
       <HomePage />
       <HorizontalScroll />
       <Distribution />

@@ -61,6 +61,7 @@ function HorizontalScroll() {
             <div className="vertical-section">
               <Distribution />
             </div>
+            
           </div>
         </div>
       </section>
