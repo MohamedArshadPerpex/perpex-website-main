@@ -1,36 +1,81 @@
-@import "./constant";
-@import "./variables";
-
-.app-home{
-  height: 141vh;
-}
-.parallax{
+/* AppContainer styles */
+.AppContainer {
+  width: 100vw;
+  height: 100vh;
+  color: #000000;
   position: relative;
+  
+}
+
+/* Loading styles */
+.Loading {
+  height: 100%;
+  width: 100%;
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+}
+
+/* Follow styles */
+.Follow {
+  position: absolute;
+  background-color: #f48049;
+  height: 2px;
+  width: 0;
+  left: 0;
+  z-index: 2;
+}
+
+/* ProgressBar styles */
+.ProgressBar {
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  height: 2px;
+  width: 0;
+  transition: 0.4s ease-out;
+}
+
+/* Count styles */
+.Count {
+  position: absolute;
+  font-size: 130px;
+  color: #fff;
+  transform: translateY(-15px);
+  font-weight: 500;
+  font-family: 'Arial', sans-serif; /* Example font family */
+}
+
+/* Content styles */
+.Content {
+  height: 100%;
+  width: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #121212;
+  padding: auto;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: url('../Images/bg-01.jpg') no-repeat;
-  background-size:cover ;
-  background-position:center;
-  background-attachment: fixed;
-}
-#text{
-  position: absolute;
-  font-size: 5em;
+  overflow: hidden;
+  color: #fff;
+  flex-direction: column;
+ }
+
+
+.Content h1 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
   color: #1b283a;
-  text-shadow: 2px 4px 5px #f9f9f9;
+  text-shadow: 1px 2px 3px #f9f9f9;
+  text-align: center; // Center the text horizontally
 }
-.parallax img{
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  pointer-events: none;
-}
-.parallax img#gate-left {
-  transform: translateX(-282px);
-}
-.parallax img#gate-right {
-  transform: translateX(305px);
+
+.Content h1 span {
+  color: #007bff;
 }

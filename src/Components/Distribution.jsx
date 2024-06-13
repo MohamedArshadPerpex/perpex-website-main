@@ -73,8 +73,8 @@ const Distribution = () => {
         <motion.div variants={item1} className="left__distribution">
           <div className="distribution__text">
             <h1>So Why Are You Here?</h1>
-            <Link to="https://perpex.in/">Looking to Upskill My Career?</Link>
-            <Link to="https://perpex.in/">Looking to Organize My Business?</Link>
+            <Link to="/business">Looking to Upskill My Career → </Link>
+            <Link to="">Looking to Organize My Business → </Link>
           </div>
           <div className="distribution__buttons">
           </div>

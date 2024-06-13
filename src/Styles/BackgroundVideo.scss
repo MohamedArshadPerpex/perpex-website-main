@@ -39,8 +39,8 @@
  }
  
  /* Ensure the container is positioned correctly */
- .background-video {
-   width: 100%;
+ .Background-video {
+   width: 63%;
    position: relative;
    display: inline-block;
    overflow: hidden;
@@ -51,7 +51,8 @@
  }
  
  .backround{
-    position: absolute;
+    
+    width: 545px;
     right: 0;
     bottom: 0;
     z-index: -1;

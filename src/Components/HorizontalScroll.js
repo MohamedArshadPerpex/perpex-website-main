@@ -9,8 +9,9 @@ import HomePage from './HomePage'; // Import HomePage
 import '../Styles/scroll.scss';
 import Footer from './Footer';
 import STTop from './STTop';
-import ParticlesComponent from "./ParticlesComponent"; // Import ParticlesComponent
-import Control from './Control';
+import ParticlesComponent from "./ParticlesComponent"; 
+import { Route, Routes } from 'react-router-dom';
+import Business from './Business';
 
 function HorizontalScroll() {
   const sectionRef = useRef(null);
@@ -50,18 +51,17 @@ function HorizontalScroll() {
         <div ref={triggerRef}>
           <div ref={sectionRef} className="scroll-section-inner">
             <div className="scroll-section">
-              <DashboardPreview />
-            </div>
-            <div className="scroll-section">
               <Analytics />
             </div>
             <div className="scroll-section">
               <Feature />
             </div>
-            <div className="vertical-section">
+            <div className="scroll-section">
               <Distribution />
             </div>
-            
+            <Routes>
+        <Route path="/business" element={<Business />} />
+      </Routes>
           </div>
         </div>
       </section>

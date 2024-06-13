@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Control from "./Control";
 import "../Styles/feature.scss"; // Import CSS separately
 import img1 from '../Images/campus.jpg';
 import img2 from '../Images/campus01.jpg';
@@ -175,7 +174,6 @@ const Feature = () => {
           </div>
         </motion.div>
       </motion.div>
-      <Control />
     </div>
   );
 };

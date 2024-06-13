@@ -1,46 +1,69 @@
-import React, { useEffect } from "react";
-import "../Styles/home.scss";
-import TreeLeft from '../Images/tree-left.png';
-import TreeRight from '../Images/tree-right.png';
-import GateLeft from '../Images/gate-left.png';
-import GateRight from '../Images/gate-right.png';
-import Grass from '../Images/grass.png';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import videos from '../Images/bg03.mp4';
+import { gsap, Expo } from "gsap";
+import '../Styles/home.scss';
+import '../Styles/BackgroundVideo.scss';
 
-const Home = () => {
+function Home() {
+  const [counter, setCounter] = useState(0);
+
   useEffect(() => {
-    const text = document.getElementById('text');
-    const treeLeft = document.getElementById('tree-left');
-    const treeRight = document.getElementById('tree-right');
-    const gateLeft = document.getElementById('gate-left');
-    const gateRight = document.getElementById('gate-right');
-
-    const handleScroll = () => {
-      let value = window.scrollY;
-      text.style.marginTop = value * 1.5 + 'px';
-      treeLeft.style.left = value * -1.5 + 'px';
-      treeRight.style.left = value * 1.5 + 'px';
-      gateLeft.style.left = value * 0.5 + 'px'
-     gateRight.style.left = value * -0.5 + 'px'
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    const count = setInterval(() => {
+      setCounter((counter) =>
+        counter < 100
+          ? counter + 1
+          : (clearInterval(count), setCounter(100), reveal())
+      );
+    }, 25);
   }, []);
 
+  const reveal = () => {
+    const t1 = gsap.timeline({
+      onComplete: () => {
+        console.log("completed");
+      },
+    });
+    t1.to(".Follow", {
+      width: "100%",
+      ease: Expo.easeInOut,
+      duration: 1.2,
+      delay: 0.7,
+    })
+      .to(".hide", { opacity: 0, duration: 0.3 })
+      .to(".hide", { display: "none", duration: 0.3 })
+      .to(".Follow", {
+        height: "100%",
+        ease: Expo.easeInOut,
+        duration: 0.7,
+        delay: 0.5,
+      })
+      .to(".Content", { width: "100%", ease: Expo.easeInOut, duration: 0.7 })
+      .to(".Title", { display: "block", duration: 0.1 })
+      .to(".Title", {
+        opacity: 1,
+        stagger: 0.15,
+        ease: Expo.easeInOut,
+        duration: 0.6,
+      });
+  };
+  
+
   return (
-    <div className="app-home" id="home">
-      <section className="parallax">
-        <h2 id="text">Welcome To Perpex</h2>
-        <img src={TreeLeft} alt="Tree Left" id="tree-left" />
-        <img src={TreeRight} alt="Tree Right" id="tree-right" />
-        <img src={GateLeft} alt="Gate Left" id="gate-left" />
-        <img src={GateRight} alt="Gate Right" id="gate-right" />
-        <img src={Grass} alt="Grass" id="grass" />
-      </section>
+    <div className="AppContainer">
+      <div className="Loading">
+        <div className="Follow"></div>
+        <div className="ProgressBar" style={{ width: counter + "%" }}></div>
+        <p className="Count">{counter}%</p>
+      </div>
+
+      <div className="Content">    
+      <h1>A Corporate Training?</h1><br />
+      <h1>Are You Looking For <span>A Sales Team?</span></h1><br />
+      <h1>₹50,000 Salary</h1>
+      </div>
     </div>
   );
-};
+}
 
 export default Home;

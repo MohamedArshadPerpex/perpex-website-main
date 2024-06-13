@@ -8,21 +8,20 @@ import CircleAnimation from "./Components/CircleAimation";
 import Home from "./Components/Home";
 import HorizontalScroll from "./Components/HorizontalScroll";
 import Distribution from "./Components/Distribution";
-import Controls from "./Components/Control";
+import Feature from "./Components/Feature";
+import STTop from "./Components/STTop";
+import Footer from "./Components/Footer";
+import DashboardPreview from "./Components/DashboardPreview";
+import Analytics from "./Components/Analytics";
 
 const App = () => {
   return (
     <div className="app">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/business" element={<Business />} />
-      </Routes>
       <CircleAnimation />
-      <HomePage />
+      <Home />
+      {/* <HomePage /> */}
       <HorizontalScroll />
-      <Distribution />
-      <Controls />
     </div>
   );
 };
